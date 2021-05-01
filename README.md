@@ -33,4 +33,4 @@ end
   }
 ```
 
-For usage of libd, see [here](https://github.com/arcticfox1919/libd/blob/main/README.md).
+For usage of LuaDardo, see [here](https://github.com/arcticfox1919/libd/blob/main/README.md).
