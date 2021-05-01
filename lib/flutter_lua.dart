@@ -1,7 +1,9 @@
-library libd_flutter;
+library flutter_lua;
 
 import 'package:flutter/widgets.dart';
-import 'package:libd/libd.dart';
+import 'package:lua_dardo/lua.dart';
+
+
 
 class FlutterLua{
 
