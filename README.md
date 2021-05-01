@@ -7,9 +7,9 @@ This is an extension of the [LuaDardo](https://github.com/arcticfox1919/LuaDardo
 pubspec.yaml
 
 ```yaml
-  libd:
+  lua_dardo:
     git: https://github.com/arcticfox1919/LuaDardo.git
-  libd_flutter:
+  flutter_lua_dardo:
     git: https://github.com/arcticfox1919/flutter_lua_dardo.git
 ```
 
