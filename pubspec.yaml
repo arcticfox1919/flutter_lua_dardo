@@ -1,4 +1,4 @@
-name: libd_flutter
+name: flutter_lua_dardo
 description: A new Flutter package.
 version: 0.0.1
 author:
@@ -11,8 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  libd:
-    git: https://github.com/arcticfox1919/libd.git
+  lua_dardo:
+    git: https://github.com/arcticfox1919/LuaDardo.git
 
 dev_dependencies:
   flutter_test:
