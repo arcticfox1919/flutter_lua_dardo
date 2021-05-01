@@ -1,6 +1,6 @@
-# libd_flutter
+# flutter_lua_dardo
 
-This is an extension of the [libd](https://github.com/arcticfox1919/libd) library.It wraps the methods in flutter for lua to call.
+This is an extension of the [LuaDardo](https://github.com/arcticfox1919/LuaDardo) library.It wraps the methods in flutter for lua to call.
 
 ## Getting Started
 
@@ -8,9 +8,9 @@ pubspec.yaml
 
 ```yaml
   libd:
-    git: https://github.com/arcticfox1919/libd.git
+    git: https://github.com/arcticfox1919/LuaDardo.git
   libd_flutter:
-    git: https://github.com/arcticfox1919/libd_flutter.git
+    git: https://github.com/arcticfox1919/flutter_lua_dardo.git
 ```
 
 Example:
