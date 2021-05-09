@@ -11,8 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  lua_dardo:
-    git: https://github.com/arcticfox1919/LuaDardo.git
+  lua_dardo: ^0.0.2
 
 dev_dependencies:
   flutter_test:
