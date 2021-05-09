@@ -7,8 +7,7 @@ This is an extension of the [LuaDardo](https://github.com/arcticfox1919/LuaDardo
 pubspec.yaml
 
 ```yaml
-  lua_dardo:
-    git: https://github.com/arcticfox1919/LuaDardo.git
+  lua_dardo: ^0.0.2
   flutter_lua_dardo:
     git: https://github.com/arcticfox1919/flutter_lua_dardo.git
 ```
@@ -18,7 +17,7 @@ Example:
 ```dart
   // calling the debugPrint() function in lua
   void _call() {
-    LuaState state = newState();
+    LuaState state = LuaState.newState();
     state.openLibs();
     // Initialize this extension
     FlutterLua.init(state);
