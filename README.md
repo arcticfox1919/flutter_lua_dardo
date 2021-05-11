@@ -48,7 +48,8 @@ end
 In your Flutter project, add the dependency. `pubspec.yaml`
 
 ```yaml
-flutter_lua_dardo: ^0.0.2
+dependencies:
+  flutter_lua_dardo: ^0.0.2
 ```
 
 Add Dart code:
