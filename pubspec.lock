@@ -63,12 +63,10 @@ packages:
   lua_dardo:
     dependency: "direct main"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: a2fb539dc13367d1796e5e67254e11336ee1cf90
-      url: "https://github.com/arcticfox1919/LuaDardo.git"
-    source: git
-    version: "1.0.0"
+      name: lua_dardo
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.0.3"
   matcher:
     dependency: transitive
     description:

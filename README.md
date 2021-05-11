@@ -1,35 +1,108 @@
 # flutter_lua_dardo
 
-This is an extension of the [LuaDardo](https://github.com/arcticfox1919/LuaDardo) library.It wraps the methods in flutter for lua to call.
+This is an extension of the [LuaDardo](https://github.com/arcticfox1919/LuaDardo) library.LuaDardo library allows Flutter to execute Lua scripts, and this library which mainly wraps some of Flutter's interfaces, which gives Flutter the ability to dynamically update and generate interfaces using remote scripts in places where UI styles need to be changed frequently.
 
-## Getting Started
+Please note that this is an experimental exploration. It only encapsulates a few simple Widgets. Others are welcome to encapsulate more Widgets for Lua.
 
-pubspec.yaml
+![](https://gitee.com/arcticfox1919/ImageHosting/raw/master/img/GIF 2021-5-11 21-44-49.gif)
 
-```yaml
-  lua_dardo: ^0.0.2
-  flutter_lua_dardo:
-    git: https://github.com/arcticfox1919/flutter_lua_dardo.git
+## Usage
+
+New Lua script `test.lua`:
+
+
+```lua
+function getContent1()
+    return Row:new({
+        children={
+            GestureDetector:new({
+                onTap=function()
+                    flutter.debugPrint("--------------onTap--------------")
+                end,
+
+                child=Text:new("click here")}),
+            Text:new("label1"),
+            Text:new("label2"),
+            Text:new("label3"),
+        },
+        mainAxisAlign=MainAxisAlign.spaceEvenly,
+    })
+end
+
+function getContent2()
+    return Column:new({
+        children={
+            Row:new({
+                children={Text:new("Hello"),Text:new("Flutter")},
+                mainAxisAlign=MainAxisAlign.spaceAround
+            }),
+            Image:network('https://gitee.com/arcticfox1919/ImageHosting/raw/master/img/flutter_lua_test.png'
+                ,{fit=BoxFit.cover})
+        },
+        mainAxisSize=MainAxisSize.min,
+        crossAxisAlign=CrossAxisAlign.center
+    })
+end
 ```
 
-Example:
+In your Flutter project, add the dependency. `pubspec.yaml`
+
+```yaml
+flutter_lua_dardo: ^0.0.2
+```
+
+Add Dart code:
 
 ```dart
-  // calling the debugPrint() function in lua
-  void _call() {
-    LuaState state = LuaState.newState();
-    state.openLibs();
-    // Initialize this extension
-    FlutterLua.init(state);
-    state.loadString('''
-a=10
-while( a < 20 ) do
-   flutter.debugPrint("a value is "..a)
-   a = a+1
-end
-''');
-    state.call(0, 0);
+class _MyHomePageState extends State<MyHomePage> {
+  LuaState _ls;
+  bool isChange = false;
+    
+  @override
+  void initState() {
+    loadLua();
+    super.initState();
   }
+    
+  void loadLua() async {
+    String src = await rootBundle.loadString('assets/test.lua');
+    try {
+      LuaState ls = LuaState.newState();
+      ls.openLibs();
+      FlutterLua.open(ls);
+      FlutterWidget.open(ls);
+      ls.doString(src);
+      setState(() {
+        _ls = ls;
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        alignment: Alignment.center,
+        child: _ls == null
+            ? CircularProgressIndicator()
+             // call the specified Lua function
+            : FlutterWidget.findViewByName<Widget>(
+            _ls, isChange ? "getContent2" : "getContent1"),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(CupertinoIcons.arrow_swap),
+        onPressed: (){
+          setState(() {
+            isChange = !isChange;
+          });
+        },
+      ),
+    );
+  }
+}
 ```
 
 For usage of LuaDardo, see [here](https://github.com/arcticfox1919/libd/blob/main/README.md).
+
