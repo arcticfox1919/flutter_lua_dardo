@@ -105,5 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 ```
 
+**To learn how to bind the Dart class to Lua, you can view this [example](https://github.com/arcticfox1919/flutter_lua_dardo/tree/master/test).**
+
 For usage of LuaDardo, see [here](https://github.com/arcticfox1919/libd/blob/main/README.md).
 
