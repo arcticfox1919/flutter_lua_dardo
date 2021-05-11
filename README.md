@@ -4,7 +4,7 @@ This is an extension of the [LuaDardo](https://github.com/arcticfox1919/LuaDardo
 
 Please note that this is an experimental exploration. It only encapsulates a few simple Widgets. Others are welcome to encapsulate more Widgets for Lua.
 
-![](https://gitee.com/arcticfox1919/ImageHosting/raw/master/img/GIF 2021-5-11 21-44-49.gif)
+![](https://gitee.com/arcticfox1919/ImageHosting/raw/master/img/GIF_2021-5-11_21-44-49.gif)
 
 ## Usage
 
