@@ -1,2 +1,2 @@
-local p = Person:create()
+local p = Person:new()
 p:sayHi("Bruce")
